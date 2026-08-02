@@ -1,0 +1,15 @@
+{
+  "java.configuration.updateBuildConfiguration": "automatic",
+  "java.project.importOnFirstTimeStartup": "automatic",
+  "java.project.sourcePaths": ["src", "test"],
+  "java.project.outputPath": "bin",
+  "java.project.referencedLibraries": ["lib/**/*.jar"],
+  "java.compile.nullAnalysis.mode": "disabled",
+  "files.watcherExclude": {
+    "**/bin/**": true
+  },
+  "search.exclude": {
+    "**/bin": true
+  },
+  "files.eol": "\n"
+}

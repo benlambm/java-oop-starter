@@ -1,0 +1,65 @@
+# ---------------------------------------------------------------------------
+# Git tracks every file in this folder unless a rule below matches it.
+# A line starting with ! is an EXCEPTION -- it un-ignores something.
+#
+# The key idea: some "IDE files" are personal (yours alone) and some are
+# project files (everyone's). We ignore the personal ones and COMMIT the
+# project ones. That is what lets one clone open in Eclipse, VS Code, and
+# Cursor with nobody reconfiguring anything.
+# ---------------------------------------------------------------------------
+
+# --- Compiled output: generated from source, never committed -----------------
+bin/
+out/
+target/
+build/
+*.class
+
+# --- Secrets and local environment -------------------------------------------
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.keystore
+
+# --- Eclipse: personal workspace state ---------------------------------------
+# NOTE: .project and .classpath are deliberately NOT ignored. They are the
+# shared project definition and MUST be committed.
+.metadata/
+.recommenders/
+.apt_generated/
+.factorypath
+.externalToolBuilders/
+tmp/
+.settings/*
+!.settings/org.eclipse.jdt.core.prefs
+!.settings/org.eclipse.core.resources.prefs
+
+# --- VS Code / Cursor: ignore personal state, keep shared config -------------
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/tasks.json
+*.code-workspace
+
+# --- IntelliJ / NetBeans ------------------------------------------------------
+.idea/
+*.iml
+*.iws
+*.ipr
+nbproject/private/
+nbbuild/
+nbdist/
+
+# --- Operating-system clutter -------------------------------------------------
+.DS_Store
+._*
+Thumbs.db
+desktop.ini
+
+# --- Logs and JVM crash reports ----------------------------------------------
+*.log
+hs_err_pid*
+replay_pid*

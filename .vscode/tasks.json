@@ -1,0 +1,30 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run all JUnit tests (console runner)",
+      "detail": "Runs every test compiled into bin/. Identical command on Windows, macOS, and Linux.",
+      "type": "shell",
+      "command": "java",
+      "args": [
+        "-jar",
+        "lib/junit-platform-console-standalone-1.14.4.jar",
+        "execute",
+        "--class-path",
+        "bin",
+        "--scan-class-path",
+        "--details=tree"
+      ],
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      },
+      "problemMatcher": []
+    }
+  ]
+}
