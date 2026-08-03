@@ -3,23 +3,13 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-
-import edu.vwcc.itp220mod2.Course;
-import edu.vwcc.itp220mod2.Enrollment;
-import edu.vwcc.itp220mod2.InPerson;
-import edu.vwcc.itp220mod2.Instructor;
-import edu.vwcc.itp220mod2.MeetingTime;
-import edu.vwcc.itp220mod2.OnlineAsync;
-import edu.vwcc.itp220mod2.Person;
-import edu.vwcc.itp220mod2.Section;
-import edu.vwcc.itp220mod2.Student;
-import edu.vwcc.itp220mod2.VirtualSync;
+import edu.vwcc.itp220mod2.*;
 
 /**
  * A demo, not an exercise: one tiny registration day at a very small
  * college. There are NO tests for this file and nothing to implement in
- * it. Run it AFTER your tests are green -- it is the victory lap that
- * shows all the pieces working together.
+ * it. Run it AFTER your tests are green to show all the pieces working
+ * together.
  *
  * On a fresh clone it stops immediately, because the model under it is
  * still a pile of TODOs. That is the correct starting behavior.
