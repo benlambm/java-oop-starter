@@ -163,6 +163,21 @@ class SectionTest {
     }
 
     @Test
+    void dropStillWorksAfterAStudentReEnrolls() {
+        Course c = new Course("ITP 220", "Java Programming II", 4);
+        Section s = c.addSection("40001", 1, new OnlineAsync(), List.of());
+        Student ada = new Student("s001", "Ada Lovelace", "ada@email.vccs.edu");
+    
+        s.enroll(ada);
+        s.drop(ada);
+        s.enroll(ada);   // a second Enrollment; the DROPPED one is still first in the list
+        assertEquals(List.of(ada), s.roster());
+    
+        assertDoesNotThrow(() -> s.drop(ada));
+        assertTrue(s.roster().isEmpty());
+    }
+
+    @Test
     void droppingSomeoneNeverEnrolledThrows() {
         Section section = sectionWithCapacity(2);
         Student stranger = student("Charles Babbage", "099");
