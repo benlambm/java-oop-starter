@@ -31,7 +31,7 @@ Clone it from inside your IDE exactly the way you did for module 1
 ## The model
 
 You are building the object model behind a college registration system —
-a system you are personally a user of.
+a system you are personally a client of!
 
 | Class | What it is | The idea it teaches |
 | --- | --- | --- |
@@ -49,10 +49,10 @@ Two vocabulary words this module leans on:
 
 - **Composition** (strong has-a): the part cannot exist without the whole.
   A Section without a Course is meaningless, so only `Course.addSection`
-  can create one — the Section constructor is deliberately not public.
+  can create one—the Section constructor is deliberately not public.
 - **Association** (plain has-a): both objects live independently and point
   at each other. An association has **two ends**, and both must be kept in
-  sync — half the bugs this module can teach you live right there.
+  sync.
 
 ## New Java in this module
 
@@ -84,48 +84,25 @@ java -jar lib/junit-platform-console-standalone-1.14.4.jar execute --class-path 
 
 24 methods across the model carry a `// TODO: your code goes here`
 placeholder. Every one sits under an `Instructions:` comment that says
-exactly what it must do. Suggested route, easiest to hardest:
-
-| Step | Where | What you implement |
-| --- | --- | --- |
-| 1 | `InPerson`, `VirtualSync`, `OnlineAsync` | `describe()` and `isOnline()` — six tiny wins |
-| 2 | `Student`, `Instructor` | `role()`, `teachingLoad()` |
-| 3 | `Person` | `contactLine()` — your first polymorphism payoff |
-| 4 | `Enrollment` | `isActive()` |
-| 5 | `MeetingTime` | `overlaps()` — think before you type |
-| 6 | `Course` | `addSection()`, `sections()`, `findSection()` |
-| 7 | `Section` | the big one: seats, enroll, waitlist, drop, conflicts |
-
-Order matters more than it did in module 1: `Section.enroll` uses
-`isOpen`, which uses `seatsRemaining`, and the drop test exercises
-`isActive`. The suggested route keeps you building on finished ground.
+exactly what it must do. 
 
 ### How to work through them
 
 1. **Run the tests first.** All 29 fail on a fresh clone. That is the
    correct starting point, not something you broke.
-2. **Pick the next class on the route.** Read its `Instructions:`
-   comments, then open its test file and read the exact values expected.
+2. **Pick the next class.** Read its `Instructions:`
+   comments, open its test file and read the exact values expected.
 3. **Write the method body.**
 4. **Re-run just that one test class** until it is green.
 5. **Commit.** One green test class is a perfect-sized commit with an
    obvious message.
 
-One reading tip specific to this module: if a test dies with a
-`NullPointerException` instead of a tidy `expected: <x> but was: <y>`,
-some method it depends on is still returning its placeholder — usually
-`enroll()` returning `null`. Finish the route in order and those clear up
-on their own.
 
 ## The victory lap
 
 `src/Main.java` is a **demo, not an exercise** — it has no tests and
-nothing for you to implement. On a fresh clone it prints one line telling
-you to go do the work. Once all 29 tests are green, run it and read the
+nothing for you to implement. Once all 29 tests are green, run it and read the
 output top to bottom: a catalog prints itself, a full section waitlists a
 third student, a drop promotes him into the seat, a time conflict is
 caught, and one loop prints a contact sheet for students and instructors
 alike without knowing which is which.
-
-That output is the whole module in twenty lines. If you can explain every
-line of it, you own this material.
